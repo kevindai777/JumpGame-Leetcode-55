@@ -32,3 +32,20 @@ while (start < nums.length) {
 }
 
 return false
+
+
+//O(n) solution where n is the length of the array
+//A tad more intuitive approach starting from the back of the array
+
+let end = nums.length - 1
+    
+//Starting from the back, check to see if it can be reached from a previous index
+//If it can, then do the same check for the previous index
+for (let i = nums.length - 1;  i >= 0; i--) {
+    if (nums[i] + i >= end) {
+        end = i
+    }
+}
+
+//See if this iteration goes all the way until the front of the array
+return end == 0
